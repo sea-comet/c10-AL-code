@@ -1,20 +1,18 @@
-
-
 ##
 # Learning Loss for Active Learning
 NUM_TRAIN = 50000 # N
 NUM_VAL   = 50000 - NUM_TRAIN
-BATCH     = 128   #128 # B
-SUBSET    = 25000  # M
-ADDENDUM  = 2500 # K
+BATCH     = 128  # 128 # B  注意，这里本来是是128
+SUBSET    = 25000 # M  # 本来是25000
+ADDENDUM  = 2500  # K   # 本来是2500
 
 MARGIN = 1.0  # xi
-WEIGHT = 1.0  #1.0 # lambda
+WEIGHT = 1.0  # 1.0 # lambda
 
 TRIALS = 1
-CYCLES = 7
+CYCLES = 7   # 本来应该是7
 
-EPOCH = 200
+EPOCH = 200   # 本来是200
 LR = 0.1    # 0.1 for SGD
 MILESTONES = [160]
 EPOCHL = 120 # After 120 epochs, stop the gradient from the loss prediction module propagated to the target model
@@ -22,6 +20,8 @@ EPOCHL = 120 # After 120 epochs, stop the gradient from the loss prediction modu
 MOMENTUM = 0.9
 WDECAY = 5e-4
 
+CLUSTER_NUMS = 10 # 新加的，聚类的cluster 数量
+CLUSTER_MAX_ITER = 10000 # 新加的，聚类的迭代次数，本来是10000
 
 
 ''' CIFAR-10 | ResNet-18 | 93.6%
@@ -45,4 +45,3 @@ EPOCHL = 40
 MOMENTUM = 0.9
 WDECAY = 5e-4
 '''
-
