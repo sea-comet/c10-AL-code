@@ -1,0 +1,90 @@
+# Hello, this is a GPU machine that can access all three GPUs. In order to use Tensorflow on these GPU you may need to set the following environment variable
+
+
+export PATH=/shared/shared/nvidia/cuda-9.0/bin:$PATH
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/shared/shared/nvidia/cuda-9.0/lib64
+
+export CUDA_HOME=/shared/shared/nvidia/cuda-9.0
+
+export CUDA_HOME=$CUDA_HOME:/shared/shared/nvidia/cuda-9.0
+
+
+
+# In addition, because the GPUs are shared among multiple users, please make sure that each program only use one GPU. This can be done through setting the environment variable similiar to the following
+
+export CUDA_VISIBLE_DEVICES=X
+
+
+# where X can be 0, 1, or 2
+
+
+# To monitor GPU status, can use
+
+watch nvidia-smi
+
+
+# To leave interactive terminals running background, can use
+
+tmux
+
+
+------------------------------
+
+Pre-installed software
+
+conda:
+
+/shared/opt/python/conda
+
+
+
+AITom library
+https://github.com/xulabs/aitom
+
+aitom_core library
+/scratch/shared_data/src/aitom/aitom_core/readme.txt
+
+Tutorials
+https://github.com/xulabs/aitom/tree/master/tutorials
+
+
+
+
+Tomominer library
+
+The steps of setting up of tomominer library can be found at
+/shared/src/tomominer/pyarmor_dist/readme.txt
+
+
+------------------------------
+Singularity container
+
+For the system clearness, we only install a minimal set of software and library in the base system. However, additional software can be found and used by running the following singularity container. If you need to install any shared software under this container, you can contact me. Currently it still has problem accessing GPU. We are on the way to fix it.
+
+
+singularity shell --bind /mnt,/scratch,/shared /vm/singularity/ubuntu-1604
+
+
+using singularity, you can access following software
+
+octave
+
+--------------------------
+Storage
+
+
+/shared/tmp is used for all users for temporarily storing, sharing or exchanging data. Notice that all data inside this folder may be erased when there is a need to release storage, so you should only put temeorary files there
+
+
+-----------------------
+
+Make sure you keep a copy of your code and important data because these hard drives may fail as they are under heavy usage.
+
+-------------------
+
+Data cleanup: run following command to find out folders under your home dir that contain large amount of data, then delete those folders that you are not going to use any more.
+
+
+du -am $HOME | sort -nr | less
+
