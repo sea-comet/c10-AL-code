@@ -1,18 +1,19 @@
+
+
 ##
 # Learning Loss for Active Learning
 NUM_TRAIN = 50000 # N
 NUM_VAL   = 50000 - NUM_TRAIN
-BATCH     = 128  # 128 # B  注意，这里本来是是128
-SUBSET    = 25000 # M  # 本来是25000
-ADDENDUM  = 2500  # K   # 本来是2500
+BATCH     = 128   # 128 # B
+ADDENDUM  = 10  # K
 
 MARGIN = 1.0  # xi
-WEIGHT = 1.0  # 1.0 # lambda
+WEIGHT = 1.0  #1.0 # lambda
 
 TRIALS = 1
-CYCLES = 7   # 本来应该是7
+CYCLES = 7
 
-EPOCH = 200   # 本来是200
+EPOCH = 200
 LR = 0.1    # 0.1 for SGD
 MILESTONES = [160]
 EPOCHL = 120 # After 120 epochs, stop the gradient from the loss prediction module propagated to the target model
@@ -45,3 +46,4 @@ EPOCHL = 40
 MOMENTUM = 0.9
 WDECAY = 5e-4
 '''
+
